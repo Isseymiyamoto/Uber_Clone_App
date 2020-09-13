@@ -27,7 +27,7 @@ class LoginController: UIViewController{
     }()
     
     private lazy var passwordContainerView: UIView = {
-        let view = UIView().inputContainerView(image: #imageLiteral(resourceName: "ic_mail_outline_white_2x"), textField: passwordTextField)
+        let view = UIView().inputContainerView(image: #imageLiteral(resourceName: "ic_lock_outline_white_2x"), textField: passwordTextField)
         view.heightAnchor.constraint(equalToConstant: 50).isActive = true
         return view
     }()
@@ -60,6 +60,8 @@ class LoginController: UIViewController{
                                                                                   NSAttributedString.Key.foregroundColor: UIColor.mainBlueTint]))
         button.setAttributedTitle(attributedTitle, for: .normal)
         
+        button.addTarget(self, action: #selector(handleShowSignUp), for: .touchUpInside)
+        
         return button
     }()
     
@@ -67,6 +69,23 @@ class LoginController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configureUI()
+        
+    }
+    
+    // MARK: - Selectors
+    
+    @objc func handleShowSignUp(){
+        let controller = SignUpController()
+        navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    
+    // MARK: - Helpers
+    
+    func configureUI(){
+        configureNavigationBar()
         
         view.backgroundColor = .backgroundColor
         
@@ -90,13 +109,10 @@ class LoginController: UIViewController{
         dontHaveAccontButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor, height: 32)
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle{
-        return .lightContent
+    func configureNavigationBar(){
+        navigationController?.navigationBar.isHidden = true
+        navigationController?.navigationBar.barStyle = .black
     }
-    
-    
-    // MARK: - Helpers
-    
     
     
     
