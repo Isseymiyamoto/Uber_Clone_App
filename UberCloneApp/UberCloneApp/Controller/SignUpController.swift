@@ -38,6 +38,11 @@ class SignUpController: UIViewController{
         return view
     }()
     
+    private lazy var accountTypeContainerView: UIView = {
+        let view = UIView().inputContainerView(image: #imageLiteral(resourceName: "ic_account_box_white_2x"), segmentedControl: accountTypeSegmentedControl)
+        view.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        return view
+    }()
     
     private let emailTextField: UITextField = {
         return UITextField().textField(withPlaceholder: "Email", isSecureTextEntry: false)
@@ -49,6 +54,21 @@ class SignUpController: UIViewController{
     
     private let passwordTextField: UITextField = {
         return UITextField().textField(withPlaceholder: "Password", isSecureTextEntry: true)
+    }()
+    
+    private let accountTypeSegmentedControl: UISegmentedControl = {
+        let sc = UISegmentedControl(items: ["Rider", "Drivers"])
+        sc.backgroundColor = .backgroundColor
+        sc.tintColor = UIColor(white: 1, alpha: 0.87)
+        sc.selectedSegmentIndex = 0
+        return sc
+    }()
+    
+    private let SignUpButton: UIButton = {
+        let button = AuthButton(type: .system)
+        button.setTitle("Sign Up", for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        return button
     }()
     
     private let alreadyHaveAccontButton: UIButton = {
@@ -91,14 +111,20 @@ class SignUpController: UIViewController{
         
         let stack = UIStackView(arrangedSubviews: [emailContainerView,
                                                    fullnameContainerView,
-                                                   passwordContainerView])
+                                                   passwordContainerView,
+                                                   accountTypeContainerView,
+                                                   SignUpButton])
         stack.axis = .vertical
-        stack.distribution = .fillEqually
+        stack.distribution = .fillProportionally
         stack.spacing = 24
         
         view.addSubview(stack)
         stack.anchor(top: titleLabel.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor,
                      paddingTop: 40, paddingLeft: 16, paddingRight: 16)
+        
+        view.addSubview(alreadyHaveAccontButton)
+        alreadyHaveAccontButton.centerX(inView: view)
+        alreadyHaveAccontButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor, height: 32)
         
     }
 }
