@@ -27,8 +27,6 @@ class HomeController: UIViewController{
         enableLocationServices()
     }
     
-    // MARK: - Helpers
-    
     
     // MARK: - API
     
@@ -57,11 +55,16 @@ class HomeController: UIViewController{
     
     // MARK: - Helpers
     
-    
-    
     func configureUI(){
+        configureMapView()
+    }
+    
+    func configureMapView(){
         view.addSubview(mapView)
         mapView.frame = view.frame
+        
+        mapView.showsUserLocation = true
+        mapView.userTrackingMode = .follow
     }
     
 }
