@@ -10,6 +10,7 @@
 		85212E99250DF22A007A52BC /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85212E98250DF22A007A52BC /* Extensions.swift */; };
 		853FE711250E711D003294C2 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853FE710250E711D003294C2 /* SignUpController.swift */; };
 		853FE713250E79DC003294C2 /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853FE712250E79DC003294C2 /* AuthButton.swift */; };
+		85BA070A2516457E0099628A /* LocationInputActivationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85BA07092516457E0099628A /* LocationInputActivationView.swift */; };
 		85DF9A0D250FB27500B52B47 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 85DF9A0C250FB27500B52B47 /* GoogleService-Info.plist */; };
 		85DF9A0F250FB80100B52B47 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85DF9A0E250FB80100B52B47 /* HomeController.swift */; };
 		85FB9C59250D0BD5004A6E34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FB9C58250D0BD5004A6E34 /* AppDelegate.swift */; };
@@ -26,6 +27,7 @@
 		85212E98250DF22A007A52BC /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		853FE710250E711D003294C2 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		853FE712250E79DC003294C2 /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
+		85BA07092516457E0099628A /* LocationInputActivationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInputActivationView.swift; sourceTree = "<group>"; };
 		85DF9A0C250FB27500B52B47 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		85DF9A0E250FB80100B52B47 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		85FB9C55250D0BD5004A6E34 /* UberCloneApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UberCloneApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				853FE712250E79DC003294C2 /* AuthButton.swift */,
+				85BA07092516457E0099628A /* LocationInputActivationView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				85FB9C59250D0BD5004A6E34 /* AppDelegate.swift in Sources */,
 				85FB9C72250D0CCC004A6E34 /* LoginController.swift in Sources */,
 				85FB9C5B250D0BD5004A6E34 /* SceneDelegate.swift in Sources */,
+				85BA070A2516457E0099628A /* LocationInputActivationView.swift in Sources */,
 				85212E99250DF22A007A52BC /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
