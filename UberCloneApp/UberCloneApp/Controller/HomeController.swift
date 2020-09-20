@@ -18,6 +18,7 @@ class HomeController: UIViewController{
     private let locationManager = CLLocationManager()
     
     private let inputActivationView = LocationInputActivationView()
+    private let locationInputView = LocationInputView()
     
     
     // MARK: - Lifecycle
@@ -80,6 +81,20 @@ class HomeController: UIViewController{
         mapView.userTrackingMode = .follow
     }
     
+    func configureLocationInputView(){
+        view.addSubview(locationInputView)
+        locationInputView.delegate = self
+        locationInputView.anchor(top: view.topAnchor, left: view.leftAnchor,
+                                 right: view.rightAnchor, height: 200)
+        locationInputView.alpha = 0
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            self.locationInputView.alpha = 1
+        }) { (_) in
+            print("DEBUG: present table view")
+        }
+    }
+    
 }
 
 
@@ -118,6 +133,21 @@ extension HomeController: CLLocationManagerDelegate{
 
 extension HomeController: LocationInputActivationViewDelegate{
     func presentLocationInputView() {
-        print("DEBUG: handle presnet input view here")
+        inputActivationView.alpha = 0
+        configureLocationInputView()
+    }
+}
+
+// MARK: - LocationInputViewDelegate
+
+extension HomeController: LocationInputViewDelegate{
+    func dismissLocationInputView() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.locationInputView.alpha = 0
+        }) { (_) in
+            UIView.animate(withDuration: 0.3) {
+                self.inputActivationView.alpha = 1
+            }
+        }
     }
 }
