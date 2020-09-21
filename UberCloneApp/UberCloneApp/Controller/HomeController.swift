@@ -33,10 +33,15 @@ class HomeController: UIViewController{
         
         checkIfUserIsLoggedIn()
         enableLocationServices()
+        fetchUserData()
     }
     
     
     // MARK: - API
+    
+    func fetchUserData(){
+        Service.shared.fetchUserData()
+    }
     
     func checkIfUserIsLoggedIn(){
         if Auth.auth().currentUser?.uid == nil {

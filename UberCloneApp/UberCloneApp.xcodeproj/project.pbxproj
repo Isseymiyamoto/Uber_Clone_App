@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		850D4D4B2518D527006ADF1B /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850D4D4A2518D527006ADF1B /* Service.swift */; };
 		85212E99250DF22A007A52BC /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85212E98250DF22A007A52BC /* Extensions.swift */; };
 		853FE711250E711D003294C2 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853FE710250E711D003294C2 /* SignUpController.swift */; };
 		853FE713250E79DC003294C2 /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853FE712250E79DC003294C2 /* AuthButton.swift */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		5F17CBB49EB1E9FC5072EF33 /* Pods_UberCloneApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UberCloneApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		850D4D4A2518D527006ADF1B /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		85212E98250DF22A007A52BC /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		853FE710250E711D003294C2 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		853FE712250E79DC003294C2 /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 		85FB9C6D250D0C01004A6E34 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				850D4D4A2518D527006ADF1B /* Service.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 				85FB9C72250D0CCC004A6E34 /* LoginController.swift in Sources */,
 				85FB9C5B250D0BD5004A6E34 /* SceneDelegate.swift in Sources */,
 				85BA070A2516457E0099628A /* LocationInputActivationView.swift in Sources */,
+				850D4D4B2518D527006ADF1B /* Service.swift in Sources */,
 				85212E99250DF22A007A52BC /* Extensions.swift in Sources */,
 				8560F914251779B200AB44EF /* LocationCell.swift in Sources */,
 			);
