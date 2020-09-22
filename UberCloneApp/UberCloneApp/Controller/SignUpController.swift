@@ -122,7 +122,7 @@ class SignUpController: UIViewController{
             "accountType": accountTypeIndex] as [String: Any]
             
             if accountTypeIndex == 1{
-                let geofire = GeoFire(firebaseRef: REF_DRIVER_LOCATION)
+                let geofire = GeoFire(firebaseRef: REF_DRIVER_LOCATIONS)
                 guard let location = self.location else { return }
                 
                 geofire.setLocation(location, forKey: uid) { (error) in
