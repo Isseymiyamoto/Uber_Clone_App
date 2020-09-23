@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		85019FCF251B81B3008C644F /* DriverAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85019FCE251B81B3008C644F /* DriverAnnotation.swift */; };
 		850D4D4B2518D527006ADF1B /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850D4D4A2518D527006ADF1B /* Service.swift */; };
 		850D4D4D2518D8F8006ADF1B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 850D4D4C2518D8F8006ADF1B /* User.swift */; };
 		85212E99250DF22A007A52BC /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85212E98250DF22A007A52BC /* Extensions.swift */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		5F17CBB49EB1E9FC5072EF33 /* Pods_UberCloneApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UberCloneApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		85019FCE251B81B3008C644F /* DriverAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverAnnotation.swift; sourceTree = "<group>"; };
 		850D4D4A2518D527006ADF1B /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		850D4D4C2518D8F8006ADF1B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		85212E98250DF22A007A52BC /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				850D4D4C2518D8F8006ADF1B /* User.swift */,
+				85019FCE251B81B3008C644F /* DriverAnnotation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 				853FE713250E79DC003294C2 /* AuthButton.swift in Sources */,
 				85DF9A0F250FB80100B52B47 /* HomeController.swift in Sources */,
 				8560F91225176F5900AB44EF /* LocationInputView.swift in Sources */,
+				85019FCF251B81B3008C644F /* DriverAnnotation.swift in Sources */,
 				85FB9C59250D0BD5004A6E34 /* AppDelegate.swift in Sources */,
 				85FB9C72250D0CCC004A6E34 /* LoginController.swift in Sources */,
 				85FB9C5B250D0BD5004A6E34 /* SceneDelegate.swift in Sources */,

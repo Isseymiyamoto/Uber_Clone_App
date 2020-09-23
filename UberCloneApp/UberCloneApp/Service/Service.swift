@@ -21,7 +21,8 @@ struct Service {
     func fetchUserData(uid: String, completion: @escaping(User) -> Void){
         REF_USERS.child(uid).observeSingleEvent(of: .value) { (snapshot) in
             guard let dictionary = snapshot.value as? [String: Any] else { return }
-            let user = User(dictionary: dictionary)
+            guard let uid = snapshot.key as? String else { return }
+            let user = User(uid: uid, dictionary: dictionary)
             completion(user)
         }
     }
