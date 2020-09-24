@@ -40,8 +40,7 @@ class HomeController: UIViewController{
         
         checkIfUserIsLoggedIn()
         enableLocationServices()
-        fetchUserData()
-        fetchDrivers()
+        
     }
     
     
@@ -89,7 +88,7 @@ class HomeController: UIViewController{
                 self.present(nav, animated: true, completion: nil)
             }
         }else {
-            configureUI()
+            configure()
         }
     }
     
@@ -102,6 +101,12 @@ class HomeController: UIViewController{
     }
     
     // MARK: - Helpers
+    
+    func configure(){
+        configureUI()
+        fetchUserData()
+        fetchDrivers()
+    }
     
     func configureUI(){
         configureMapView()
