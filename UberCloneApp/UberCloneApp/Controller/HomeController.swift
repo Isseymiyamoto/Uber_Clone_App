@@ -70,6 +70,7 @@ class HomeController: UIViewController{
             print("DEBUG: show menu")
         case .dismissActionView:
             removeAnnotationAndOverlays()
+            mapView.showAnnotations(mapView.annotations, animated: true)
             
             UIView.animate(withDuration: 0.3) {
                 self.inputActivationView.alpha = 1
@@ -390,6 +391,11 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource{
             let annotation = MKPointAnnotation()
             annotation.coordinate = selectedPlacemark.coordinate
             self.mapView.addAnnotation(annotation)
+            
+            let annotations = self.mapView.annotations.filter({ !$0.isKind(of: DriverAnnotation.self )})
+            
+            self.mapView.showAnnotations(annotations, animated: true)
         }
+        
     }
 }
