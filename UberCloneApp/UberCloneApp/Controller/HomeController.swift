@@ -30,10 +30,12 @@ class HomeController: UIViewController{
     private let locationManager = LocationHandler.shared.locationManager
     
     private let inputActivationView = LocationInputActivationView()
+    private let rideActionView = RideActionView()
     private let locationInputView = LocationInputView()
     private let tableView = UITableView()
     private var searchResults = [MKPlacemark]()
     private final let locationInputViewHeight: CGFloat = 200
+    private final let rideActionViewHeight: CGFloat = 300
     private var actionButtonConfig = ActionButtonConfiguration()
     private var route: MKRoute?
     
@@ -75,6 +77,7 @@ class HomeController: UIViewController{
             UIView.animate(withDuration: 0.3) {
                 self.inputActivationView.alpha = 1
                 self.configureActionButton(config: .showMenu)
+                self.animateRideActionView(shouldShow: false)
             }
         }
     }
@@ -157,6 +160,7 @@ class HomeController: UIViewController{
     
     func configureUI(){
         configureMapView()
+        configureActionView()
         
         view.addSubview(actionButton)
         actionButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor,
@@ -202,6 +206,11 @@ class HomeController: UIViewController{
         }
     }
     
+    func configureActionView(){
+        view.addSubview(rideActionView)
+        rideActionView.frame = CGRect(x: 0, y: view.frame.height, width: view.frame.width, height: rideActionViewHeight)
+    }
+    
     func configureTableView(){
         tableView.delegate = self
         tableView.dataSource = self
@@ -223,6 +232,19 @@ class HomeController: UIViewController{
             self.tableView.frame.origin.y = self.view.frame.height
             self.locationInputView.removeFromSuperview()
         }, completion: completion)
+    }
+    
+    func animateRideActionView(shouldShow: Bool, destination: MKPlacemark? = nil){
+        let yOrigin = shouldShow ? self.view.frame.height - rideActionViewHeight : self.view.frame.height
+        
+        if shouldShow{
+            guard let destination = destination else { return }
+            rideActionView.destination = destination
+        }
+        
+        UIView.animate(withDuration: 0.3) {
+            self.rideActionView.frame.origin.y = yOrigin
+        }
     }
 }
 
@@ -393,8 +415,9 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource{
             self.mapView.addAnnotation(annotation)
             
             let annotations = self.mapView.annotations.filter({ !$0.isKind(of: DriverAnnotation.self )})
+            self.mapView.zoomToFit(annotations: annotations)
             
-            self.mapView.showAnnotations(annotations, animated: true)
+            self.animateRideActionView(shouldShow: true, destination: selectedPlacemark)
         }
         
     }
