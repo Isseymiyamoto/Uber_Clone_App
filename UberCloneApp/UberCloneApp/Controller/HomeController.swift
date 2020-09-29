@@ -35,6 +35,7 @@ class HomeController: UIViewController{
     private let tableView = UITableView()
     private var searchResults = [MKPlacemark]()
     private final let locationInputViewHeight: CGFloat = 200
+    private final let rideActionViewHeight: CGFloat = 300
     private var actionButtonConfig = ActionButtonConfiguration()
     private var route: MKRoute?
     
@@ -76,6 +77,7 @@ class HomeController: UIViewController{
             UIView.animate(withDuration: 0.3) {
                 self.inputActivationView.alpha = 1
                 self.configureActionButton(config: .showMenu)
+                self.animateRideActionView(shouldShow: false)
             }
         }
     }
@@ -206,7 +208,7 @@ class HomeController: UIViewController{
     
     func configureActionView(){
         view.addSubview(rideActionView)
-        rideActionView.frame = CGRect(x: 0, y: view.frame.height - 300, width: view.frame.width, height: 300)
+        rideActionView.frame = CGRect(x: 0, y: view.frame.height, width: view.frame.width, height: rideActionViewHeight)
     }
     
     func configureTableView(){
@@ -230,6 +232,14 @@ class HomeController: UIViewController{
             self.tableView.frame.origin.y = self.view.frame.height
             self.locationInputView.removeFromSuperview()
         }, completion: completion)
+    }
+    
+    func animateRideActionView(shouldShow: Bool){
+        let yOrigin = shouldShow ? self.view.frame.height - rideActionViewHeight : self.view.frame.height
+        
+        UIView.animate(withDuration: 0.3) {
+            self.rideActionView.frame.origin.y = yOrigin
+        }
     }
 }
 
@@ -400,8 +410,9 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource{
             self.mapView.addAnnotation(annotation)
             
             let annotations = self.mapView.annotations.filter({ !$0.isKind(of: DriverAnnotation.self )})
-            
             self.mapView.showAnnotations(annotations, animated: true)
+            
+            self.animateRideActionView(shouldShow: true)
         }
         
     }
