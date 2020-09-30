@@ -208,6 +208,7 @@ class HomeController: UIViewController{
     
     func configureActionView(){
         view.addSubview(rideActionView)
+        rideActionView.delegate = self
         rideActionView.frame = CGRect(x: 0, y: view.frame.height, width: view.frame.width, height: rideActionViewHeight)
     }
     
@@ -420,5 +421,20 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource{
             self.animateRideActionView(shouldShow: true, destination: selectedPlacemark)
         }
         
+    }
+}
+
+extension HomeController: RideActionViewDelegate{
+    func uploadTrip(_ view: RideActionView) {
+        guard let pickupCoordinates = locationManager?.location?.coordinate else { return }
+        guard let destinationCoordinates = view.destination?.coordinate else { return }
+        
+        Service.shared.uploadTrip(pickupCoordinates, destinationCoordinates) { (error, ref) in
+            if let error = error{
+                print("DEBUG: error is \(error.localizedDescription)")
+            }
+            
+            print("DEBUG: 見事に成功")
+        }
     }
 }
