@@ -55,6 +55,7 @@ class HomeController: UIViewController{
         didSet{
             guard let trip = trip else { return }
             let controller = PickupController(trip: trip)
+            controller.delegate = self
             controller.modalPresentationStyle = .fullScreen
             self.present(controller, animated: true, completion: nil)
         }
@@ -76,6 +77,12 @@ class HomeController: UIViewController{
         
         checkIfUserIsLoggedIn()
         enableLocationServices()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        guard let trip = trip else { return }
     }
     
     // MARK: - selectors
@@ -445,6 +452,8 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource{
     }
 }
 
+// MARK: - RideActionViewDelegate
+
 extension HomeController: RideActionViewDelegate{
     func uploadTrip(_ view: RideActionView) {
         guard let pickupCoordinates = locationManager?.location?.coordinate else { return }
@@ -457,5 +466,14 @@ extension HomeController: RideActionViewDelegate{
             
             print("DEBUG: 見事に成功")
         }
+    }
+}
+
+// MARK: - PickupControllerDelegate
+
+extension HomeController: PickupControllerDelegate{
+    func didAcceptTrip(_ trip: Trip) {
+        self.trip?.state = .accepted
+        self.dismiss(animated: true, completion: nil)
     }
 }
