@@ -9,9 +9,15 @@
 import UIKit
 import MapKit
 
+protocol RideActionViewDelegate: class {
+    func uploadTrip(_ view: RideActionView)
+}
+
 class RideActionView: UIView{
     
     // MARK: - Properties
+    
+    weak var delegate: RideActionViewDelegate?
     
     var destination: MKPlacemark? {
         didSet{
@@ -118,7 +124,7 @@ class RideActionView: UIView{
     // MARK: - Selectors
     
     @objc func actionButtonPressed(){
-        print("DEBUG: this is not working")
+        delegate?.uploadTrip(self)
     }
     
     
