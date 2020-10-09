@@ -459,12 +459,16 @@ extension HomeController: RideActionViewDelegate{
         guard let pickupCoordinates = locationManager?.location?.coordinate else { return }
         guard let destinationCoordinates = view.destination?.coordinate else { return }
         
+        shouldPresentLoadingView(true, message: "Finding you a ride")
+        
         Service.shared.uploadTrip(pickupCoordinates, destinationCoordinates) { (error, ref) in
             if let error = error{
                 print("DEBUG: error is \(error.localizedDescription)")
             }
             
-            print("DEBUG: 見事に成功")
+            UIView.animate(withDuration: 0.3) {
+                self.rideActionView.frame.origin.y = self.view.frame.height
+            }
         }
     }
 }
