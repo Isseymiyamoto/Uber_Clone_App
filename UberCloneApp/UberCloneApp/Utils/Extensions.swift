@@ -178,7 +178,7 @@ extension UIViewController{
             loadingView.tag = 1
             
             let indicator = UIActivityIndicatorView()
-            indicator.style = .whiteLarge
+            indicator.style = UIActivityIndicatorView.Style.large
             indicator.center = view.center
             
             let label = UILabel()
